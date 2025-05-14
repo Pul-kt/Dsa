@@ -1,19 +1,5 @@
 class Solution {
 public:
-    int ModMax = INT_MAX;
-    int ModMin = INT_MIN;
-int f(int i,int n,long long ans,string &s,int sign){
-
-    if(i >= n || !isdigit(s[i])) return ans*sign;
-
-    ans = ans*10 + (s[i] - '0');
-    long signedNum = sign * ans;
-    if (signedNum >= ModMax) return ModMax;
-    if (signedNum <= ModMin) return ModMin;
-
-    return f(i+1,n,ans,s,sign);
-
-}
     int myAtoi(string s) {
         int i = 0;
         int n = s.length();
@@ -25,7 +11,16 @@ int f(int i,int n,long long ans,string &s,int sign){
             sign = (s[i] == '+')? 1 : -1;
             i++;
         }
+        while (i < n && isdigit(s[i])) {
+            ans = ans * 10 + (s[i] - '0');
 
-        return f(i,n,ans,s,sign);
+            if (ans * sign >= INT_MAX) return INT_MAX;
+            if (ans * sign <= INT_MIN) return INT_MIN;
+
+            i++;
+        }
+
+        return ans * sign;
+
     }
 };
