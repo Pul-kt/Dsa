@@ -1,5 +1,7 @@
+// 2 approaches one using max heap of n size and one using min heap of k size 
+// both work in nlogk and klogn
 class Solution {
-public:
+public: 
     vector<int> topKFrequent(vector<int>& nums, int k) {
         unordered_map<int,int> freq;
         for(int it : nums){
