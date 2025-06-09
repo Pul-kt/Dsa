@@ -15,8 +15,9 @@ public:
         while(!pq.empty()){
             int n = ans.length() - 1;
             bool poped = false;
-            int tempFreq,tempCh;
-            if(n >= 0 && ans[n] == pq.top().second) {
+            int tempFreq;
+            char tempCh;
+            if(!ans.empty() && ans[n] == pq.top().second) {
                 if(pq.size() == 1) return "";
                 tempFreq = pq.top().first;
                 tempCh = pq.top().second; 
