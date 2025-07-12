@@ -11,3 +11,4 @@ public:
         }
     }
 };
+//left stores the index till which we have non 0 elemets.
